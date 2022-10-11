@@ -86,10 +86,11 @@ class Controller {
                 name,
                 expiredAt :moment( ms(expiredAt)).format('dddd, MMMM Do YYYY')
             })
+            res.status(201).json(createArisan)
         } catch (error) {
             next(error)
         }
-    },
+    }
     static async payTrans (req, res, next) {
         try {
             const update = await LogTran.update({status : "Success"},{
@@ -104,3 +105,5 @@ class Controller {
         }
     }
 }
+
+module.exports = Controller
